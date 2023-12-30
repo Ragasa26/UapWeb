@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>UAP WEB</title>
+</head>
+<body>
+    <div class = "container">
+        <table border="1">
+            <thead>
+                <th>Kode</th>
+                <th>Nama Barang</th>
+                <th>harga</th>
+            </thead>
+            <tbody >
+                <td>001</td>
+                <td>A</td>
+                <td>100000</td>
+            </tbody>
+            <tbody >
+                <td>002</td>
+                <td>B</td>
+                <td>200000</td>
+            </tbody>
+            <tbody >
+                <td>003</td>
+                <td>C</td>
+                <td>300000</td>
+            </tbody>
+        </table>
+
+    </div>
+    <div class ="inputUser">
+        <table>
+            <tr>
+                <td>Masukkan Kode</td>
+                <td><input type="text" name="kode" id="angka1"></td>
+            </tr>
+            <tr>
+                <td>Banyaknya Barang</td>
+                <td><input type="text" name="barang" id="angka2"></td>
+            </tr>
+        </table>
+        <input type="submit" onclick="masukkan()" title="Submit">
+    </div>
+
+    <script>
+        const barang = {
+            "001":{nama:"A",harga:10000},
+            "002":{nama:"B",harga:20000},
+            "003":{nama:"C",harga:30000}
+        }
+
+        function masukkan(){
+            var kode = document.getElementById("angka1");
+            var jumlah = document.getElementById("angka2");
+
+            if(barang.hasOwnProperty(kode.value)){
+                var hargaBarang = barang[kode.value].harga;
+                var total = hargaBarang * jumlah.value;
+
+                alert ("Total pembayaran adalah "+ total)
+
+                var uang = prompt ("Masukkan uang user ");
+
+                var kembalian = uang - total;
+
+                alert ("total kembalian adalah " + kembalian)
+
+            }else{
+                alert("Kode Tidak Ditemukan" + kode.value)
+            }
+        }
+    </script>
+</body>
+</html>
